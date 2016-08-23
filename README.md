@@ -150,3 +150,63 @@ export default {
           </li>
 </item-swipe>
 ```
+
+
+##样式
+```
+.cp-swiper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  .cp-swiper-wrap {
+    transform: translateZ(0);
+    &.snipe {
+      transition: all .4s;
+    }
+    .swiper {
+      margin-left: -100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      > .swipe-item {
+        flex: 1;
+      }
+    }
+    img {
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+    }
+  }
+  .swiper-dot {
+    position: absolute;
+    z-index: 11;
+    bottom: px2rem(7px);
+    width: 100%;
+    text-align: center;
+    > li {
+      margin: 2px;
+      display: inline-block;
+      width: .5rem; //奇数圆角不够圆
+      height: .5rem;
+      border-radius: 1rem;
+      background-color: rgba(0, 0, 0, .3);
+      transition: all .4s;
+      @media screen and (min-width: 320px) {
+        width: 6px;
+        height: 6px;
+      }
+      @media screen and (min-width: 375px) {
+        width: 8px;
+        height: 8px;
+      }
+      @media screen and (min-width: 414px) {
+        width: 10px;
+        height: 10px;
+      }
+      &.cur {
+        background-color: rgba(0, 0, 0, .7);
+      }
+    }
+  }
+}
+```
